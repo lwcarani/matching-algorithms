@@ -84,7 +84,7 @@ def update_graph(
 def ttc(
     employee_preferences: Dict[str, List[str]],
     job_preferences: Dict[str, List[str]]
-) -> Dict[str, str]:
+) -> Tuple[Dict[str, str], Dict[str, str]]:
     matches: Dict[str, str] = {}
     employees = set(employee_preferences.keys())
     jobs = set(job_preferences.keys())
