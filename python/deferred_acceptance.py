@@ -5,10 +5,15 @@ def employee_without_match(
     matches: Dict[str, str],
     employees: Set[str]
 ) -> str:
-    """Helper function to determine if employee is unmatched. Returns the first employee encountered that is not
-    yet matched. employees can be matched with a job, or themselves. If matched to themselves, this means that the
-    matching algorithm has exhausted their entire preference list (e-resume). If all employees are matched, this
-    function will return None, and we will break from deferred acceptance algorithm."""
+    """
+    Helper function to determine if employee is unmatched. 
+    Returns the first employee encountered that is not
+    yet matched. employees can be matched with a job, or
+    themselves. If matched to themselves, this means that the
+    matching algorithm has exhausted their entire preference
+    list. If all employees are matched, this function will
+    return None, and we will break from deferred acceptance algorithm.
+    """
     for employee in employees:
         if employee not in matches:
             return employee
@@ -18,19 +23,19 @@ def da(
     job_preferences: Dict[str, List[str]]
 ) -> Tuple[Dict[str, str], Dict[str, str]]:
     """
-    Implementation of the deferred acceptance (DA) algorithm
-    (also known as Gale-Shapley algorithm), first published in 1962.
-    Iterates through all employees and their preference lists
-    (a.k.a. e-resumes), and tentatively assigns them to the most
-    preferred job on their list, only re-assigning them if another
-    employee with higher priority (read: higher qualification score,
-    read score, and/or lottery score) 'proposes' to that same job.
-    When this happens, the employee with lower priority is bumped,
-    and then the algorithm iteratively attempts to assign them a
-    remaining job as high on their list as possible. Algorithm
-    terminates when either (1) all employees have been assigned,
-    or (2) all employees have exhausted their e-resumes
-    (no more jobs to try and match them with).
+    Implementation of the deferred acceptance (DA) algorithm (also
+    (also as Gale-Shapley algorithm), first published in 1962.
+    Iterates through all employees and their preference lists,
+    and tentatively assigns them to the most preferred job on
+    their list, only re-assigning them if the job they are 
+    tentatively assigned to is "proposed to" by an employee
+    that the job desires more. When this happens, the initial
+    employee is bumped (because the job prefers its new offer),
+    and then the algorithm iteratively attempts to assign this
+    "bumped" employee a remaining job as high on their preference
+    list as possible. Algorithm terminates when either (1) all
+    employees have been assigned, or (2) all employees have
+    exhausted their preference lists (no more jobs available).
     """
     job_queue: Dict = defaultdict(int)
     employees: Set[str] = set(employee_preferences.keys())
@@ -73,7 +78,11 @@ def da(
         # check and see who has priority. If the current employee has a higher priority
         # than the previous employee assigned to this job, make the new job.
         # This is the primary tiebreaker.
-        elif job_preferences[job].index(employee) < job_preferences[job].index(prev_employee):
+        elif (
+            employee in job_preferences[job]
+            and prev_employee in job_preferences[job]
+            and job_preferences[job].index(employee) < job_preferences[job].index(prev_employee)
+        ):
             matches[employee] = job
             matches[job] = employee
             del matches[prev_employee]

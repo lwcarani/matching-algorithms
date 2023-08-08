@@ -29,12 +29,11 @@ def find_blocking_pairs(
                 other_employee: str = two_sided_match[preferred_job]
 
                 if (
-                    job_preferences.get(preferred_job).index(current_employee) < job_preferences.get(preferred_job).index(other_employee)
+                    current_employee in job_preferences.get(preferred_job)
+                    and other_employee in job_preferences.get(preferred_job)
+                    and job_preferences.get(preferred_job).index(current_employee) < job_preferences.get(preferred_job).index(other_employee)
                 ):
                     # current_employee should've been assigned over other_employee, something went wrong...
                     blocking_pairs[current_employee] = other_employee
                 
-
-    if len(blocking_pairs) > 0:
-        print(employee_preferences)
     return blocking_pairs

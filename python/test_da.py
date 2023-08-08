@@ -30,6 +30,42 @@ class TestDeferredAcceptance(TestCase):
             data_generator.generate_preference_data(50, 50, 25),
             data_generator.generate_preference_data(5000, 500, 50),
             data_generator.generate_preference_data(3000, 3000, 20),
+            [
+                {
+                    'e1': ['j2','j3','j4','j5','j6','j1'],
+                    'e2': ['j3','j4','j5','j6','j1','j2'],
+                    'e3': ['j1','j2','j3','j4','j5','j6'],
+                    'e4': ['j5','j6','j1','j2','j3','j4'],
+                    'e5': ['j4','j1','j2','j3','j5','j6'],
+                    'e6': ['j6','j1','j2','j3','j4','j5'],
+                },
+                {
+                    'j1': ['e1'],
+                    'j2': ['e2'],
+                    'j3': ['e3'],
+                    'j4': ['e4'],
+                    'j5': ['e5'],
+                    'j6': ['e6'],
+                }
+            ],
+            [
+                {
+                    'e1': ['j1','j2','j3','j4','j5','j6'],
+                    'e2': ['j1','j2','j3','j4','j5','j6'],
+                    'e3': ['j1','j2','j3','j4','j5','j6'],
+                    'e4': ['j1','j2','j3','j4','j5','j6'],
+                    'e5': ['j1','j2','j3','j4','j5','j6'],
+                    'e6': ['j1','j2','j3','j4','j5','j6'],
+                },
+                {
+                    'j1': ['e1'],
+                    'j2': ['e2'],
+                    'j3': ['e3'],
+                    'j4': ['e4'],
+                    'j5': ['e5'],
+                    'j6': ['e6'],
+                }
+            ],
         ]
     )
     def test_blocking_pairs(
