@@ -6,7 +6,7 @@ from typing import List, Dict
 
 # custom imports
 import data_generator
-from utils import find_blocking_pairs
+from da_utils import find_blocking_pairs
 from deferred_acceptance import da
 
 
