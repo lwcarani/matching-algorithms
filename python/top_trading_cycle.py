@@ -1,5 +1,5 @@
 # standard imports
-from typing import List, Dict
+from typing import List, Dict, Tuple
 from collections import defaultdict
 
 # custom imports
@@ -58,8 +58,3 @@ def ttc(
         )
 
     return matches, {employee: matches[employee] for employee in employees}
-
-
-
-
-
