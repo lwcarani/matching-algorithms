@@ -15,7 +15,7 @@ def find_cycle(G: Graph) -> List[str] | None:
     while n.name not in visited_nodes:
         visited_nodes.add(n.name)
         cycle.append(n.name)
-        n: Node = G.nodes[n.get_random_next_node()]
+        n: Node = G.nodes[n.get_next_node()]
 
     start_of_cycle_index = cycle.index(n.name)
     return cycle[start_of_cycle_index:]
