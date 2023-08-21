@@ -4,7 +4,7 @@ from collections import defaultdict
 
 # custom imports
 from graph import Graph
-from ttc_utils import find_cycle, update_graph
+from algos.ttc_utils import find_cycle, update_graph
 
 
 def ttc(

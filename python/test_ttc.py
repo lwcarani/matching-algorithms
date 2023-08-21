@@ -6,8 +6,8 @@ from typing import List, Dict
 from collections import defaultdict
 
 # custom imports
-from da_utils import find_blocking_pairs
-from top_trading_cycle import ttc, update_graph, find_cycle
+from algos.da_utils import find_blocking_pairs
+from algos.top_trading_cycle import ttc, update_graph, find_cycle
 from graph import Graph
 
 

@@ -6,8 +6,8 @@ from typing import List, Dict
 
 # custom imports
 import data_generator
-from da_utils import find_blocking_pairs
-from deferred_acceptance import da
+from algos.da_utils import find_blocking_pairs
+from algos.deferred_acceptance import da
 
 
 class TestDeferredAcceptance(TestCase):
