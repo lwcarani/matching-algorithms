@@ -41,7 +41,7 @@ def ttc(
         # make assignments of employees to job based on cycle that was found
         for node in cycle:
             if node in employees:
-                job: str = G.nodes[node].get_random_next_node()
+                job: str = G.nodes[node].get_next_node()
                 matches[node] = job
                 matches[job] = node
                 G.delete_node(node)

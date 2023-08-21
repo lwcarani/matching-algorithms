@@ -136,19 +136,19 @@ class TestTopTradingCycle(TestCase):
 
         # check next nodes for all current nodes in graph
         self.assertEqual(
-            G.nodes['e1'].get_random_next_node(),
+            G.nodes['e1'].get_next_node(),
             'j1'
         )
         self.assertEqual(
-            G.nodes['e2'].get_random_next_node(),
+            G.nodes['e2'].get_next_node(),
             'j2'
         )
         self.assertEqual(
-            G.nodes['j1'].get_random_next_node(),
+            G.nodes['j1'].get_next_node(),
             'e2'
         )
         self.assertEqual(
-            G.nodes['j2'].get_random_next_node(),
+            G.nodes['j2'].get_next_node(),
             'e2'
         )
 
@@ -272,7 +272,7 @@ class TestTopTradingCycle(TestCase):
 
         for node in cycle:
             if node in employees:
-                job: str = G.nodes[node].get_random_next_node()
+                job: str = G.nodes[node].get_next_node()
                 matches[node] = job
                 matches[job] = node
                 G.delete_node(node)
@@ -341,7 +341,7 @@ class TestTopTradingCycle(TestCase):
 
         for node in cycle:
             if node in employees:
-                job: str = G.nodes[node].get_random_next_node()
+                job: str = G.nodes[node].get_next_node()
                 matches[node] = job
                 matches[job] = node
                 G.delete_node(node)
