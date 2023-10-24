@@ -86,6 +86,7 @@ Various references that I've enjoyed over the years can be found here:
 - [The Design of School Choice
 Systems in NYC and Boston:
 Game-Theoretic Issues](https://web.stanford.edu/~niederle/School%20Matching%20Systems.pdf) - Alvin Roth, Atila Abdulkadiroğlu, Parag Pathak, and Tayfun Sönmez
+- [Assigning more students to their top choices: A comparison of tie-breaking rules](https://web.stanford.edu/~iashlagi/papers/ties-anr.pdf) - Itai Ashlagi, Afshin Nikzad, and Assaf Romm
 - [Alvin Roth's Market Design Blog](https://marketdesigner.blogspot.com/)
 - [Who Gets What -- and Why](https://books.google.com/books/about/Who_Gets_What_and_why.html?id=rVhCCQAAQBAJ) - book by Alvin Roth
 - [Stable Matchings, Optimal Assignments, and Linear Programming](https://web.stanford.edu/~alroth/papers/1993_MOR_StableMatchingsOptimal.pdf) - Alvin Roth, Uriel G. Rothblum, and John H. Vande Vate
