@@ -54,7 +54,7 @@ The goal of the top trading cycles algorithm is to make trades amongst two sides
 ## Algorithm
 1. Each employee "points" to their most preferred job that is still unmatched.
 2. Each job "points" to its most preferred employee that is still unmatched.
-3. Draw a directed edge from each employee `e` to their preferred job `j`. Draw a directed edge from each job `j` to their most preferred employee `e`.
+3. Draw a directed edge from each employee `e` to their preferred job `j`. Draw a directed edge from each job `j` to its most preferred employee `e`.
 4. Note that there must be at least one cycle in the graph - implement the trade indicated by this cycle.
 5. If there are remaining employees go back to step 1.
 
