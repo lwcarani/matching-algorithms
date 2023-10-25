@@ -52,10 +52,11 @@ Like the Gale-Shapley algorithm, TTC is a truthful mechanism, which means that i
 The goal of the top trading cycles algorithm is to make trades amongst two sides of a market to find better allocations, i.e., ones where employees get jobs that they like better. More formally, we want to find a _stable allocation_, which means there is no trading coalition, which simply means there is no group of people that can swap amongst themselves so that every employee receives a job that they like better.
 
 ## Algorithm
-1. Each employee "points" to their most preferred job that is still remaining.
-2. Draw a directed edge from each employee `e` to their preferred job `j`. Draw a directed edge from each job `j` to their most preferred employee `e`.
-3. Note that there must be at least one cycle in the graph - implement the trade indicated by this cycle.
-4. If there are remaining employees go back to step 1.
+1. Each employee "points" to their most preferred job that is still unmatched.
+2. Each job "points" to its most preferred employee that is still unmatched.
+3. Draw a directed edge from each employee `e` to their preferred job `j`. Draw a directed edge from each job `j` to their most preferred employee `e`.
+4. Note that there must be at least one cycle in the graph - implement the trade indicated by this cycle.
+5. If there are remaining employees go back to step 1.
 
 
 ## TTC Algorithm Example
