@@ -96,6 +96,6 @@ Game-Theoretic Issues](https://web.stanford.edu/~niederle/School%20Matching%20Sy
 - [On approximately fair allocations of indivisible goods](https://dl.acm.org/doi/abs/10.1145/988772.988792) - R.J. Lipton, E. Markakis, E. Mossel, and A. Saberi
 ---
 
-Finally, if you haven't used the [Finite State Machine Designer](https://madebyevan.com/fsm/) tool made by [Evan Wallace](https://madebyevan.com/), I highly recommend you check it out. I've been using it since graduate school - this simple and easy-to-use design has saved me countless hours!
+Finally, if you haven't used the [Finite State Machine Designer](https://madebyevan.com/fsm/) tool made by [Evan Wallace](https://madebyevan.com/), I highly recommend you check it out. I've been using it since graduate school - the simple and easy-to-use design has saved me countless hours!
 
 Feedback and pull requests are welcome!
