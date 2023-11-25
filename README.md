@@ -35,7 +35,7 @@ The way we read this is that employee 1's top choice is job 2, followed by job 1
 ### Discussion of Stable Matchings and Blocking Pairs
 Because of the way the algorithm is designed, we are guaranteed a stable matching $\mathcal{M}$ when the algorithm terminates, which means that no blocking pairs will be present. 
 
-Let's suppose our final matching was actually $\mathcal{M'} = $ `(e1, j2), (e2, j1)`. Although in this proposed matching `e1` is getting their top choice of `j2`, we see by looking at the initial preference lists that `e2` prefers `j2` to their current assignment `j1`, AND `j2` also prefers `e2` to their current assignment `e1`. Therefore, in $\mathcal{M'}$ we have a blocking pair `(e2, j2)`. 
+Let's suppose our final matching was actually $\mathcal M' = $ `(e1, j2), (e2, j1)`. Although in this proposed matching `e1` is getting their top choice of `j2`, we see by looking at the initial preference lists that `e2` prefers `j2` to their current assignment `j1`, AND `j2` also prefers `e2` to their current assignment `e1`. Therefore, in $\mathcal{M'}$ we have a blocking pair `(e2, j2)`. 
 
 Obviously this blocking pair was not present in our final matching $\mathcal{M}$, but how are we guaranteed that the Gale-Shapley algorithm will never terminate with a blocking pair as part of the final matching? The intuition is that if `e2` prefers `j2` to their current assignment of `j1`, then at some point during algorithm execution, `e2` would have proposed to `j2`. And since `j2` also prefers `e2` to their current assignment `j1`, they would have accepted this proposal, and been matched with `e2`! And this is what we saw happen when we stepped through the example above.
 
