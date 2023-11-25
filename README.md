@@ -30,12 +30,12 @@ The way we read this is that employee 1's top choice is job 2, followed by job 1
 - We start by arbitrarily selecting an employee to begin. `e1` "proposes" to `j2`. `e1` is acceptable to `j2` (`e1` exists on `j2`'s preference list), so `j2` accepts and is tentatively matched to `e1`. ***Tentative Matches:*** `(e1, j2)`.
 - Next, `e2` proposes to the top job on their list, which is also `j2`. Since according to `j2`'s preference list, they prefer `e2` to their current tentative match of `e1`, they will accept this new proposal from `e2`, and reject `e1`. ***Tentative Matches:*** `(e2, j2)`.
 - We now cycle back to `e1`, because although they already "took a turn" and proposed to their top choice of `j2`, they were subsequently "bumped" by `e2`, since `j2` prefers `e2` to `e1`. `e1` proposes to their next most preferred job, `j1`. `e1` is acceptable to `j1`, so `j1` accepts, and is tentatively matched to `e1`. ***Tentative Matches:*** `(e1, j1), (e2, j2)`.
-- All employees are now matched, so we make all tentative matches permanent. **Final Matching:** $\mathcal{M} = $ `(e1, j1), (e2, j2)`.
+- All employees are now matched, so we make all tentative matches permanent. **Final Matching:** $\mathcal{M}=$ `(e1, j1), (e2, j2)`.
 
 ### Discussion of Stable Matchings and Blocking Pairs
 Because of the way the algorithm is designed, we are guaranteed a stable matching $\mathcal{M}$ when the algorithm terminates, which means that no blocking pairs will be present. 
 
-Let's suppose our final matching was actually $\mathcal M' = $ `(e1, j2), (e2, j1)`. Although in this proposed matching `e1` is getting their top choice of `j2`, we see by looking at the initial preference lists that `e2` prefers `j2` to their current assignment `j1`, AND `j2` also prefers `e2` to their current assignment `e1`. Therefore, in $\mathcal{M'}$ we have a blocking pair `(e2, j2)`. 
+Let's suppose our final matching was actually $\mathcal{M'}=$ `(e1, j2), (e2, j1)`. Although in this proposed matching `e1` is getting their top choice of `j2`, we see by looking at the initial preference lists that `e2` prefers `j2` to their current assignment `j1`, AND `j2` also prefers `e2` to their current assignment `e1`. Therefore, in $\mathcal{M'}$ we have a blocking pair `(e2, j2)`. 
 
 Obviously this blocking pair was not present in our final matching $\mathcal{M}$, but how are we guaranteed that the Gale-Shapley algorithm will never terminate with a blocking pair as part of the final matching? The intuition is that if `e2` prefers `j2` to their current assignment of `j1`, then at some point during algorithm execution, `e2` would have proposed to `j2`. And since `j2` also prefers `e2` to their current assignment `j1`, they would have accepted this proposal, and been matched with `e2`! And this is what we saw happen when we stepped through the example above.
 
