@@ -71,7 +71,7 @@ Another way to think about this algorithm is that employees are trading prioriti
 
 ```mermaid
 flowchart LR
-    id1((e_1))-->id2(j_2)
+    id1((e_1))-->id2(($j_2$))
 ```
 
 
