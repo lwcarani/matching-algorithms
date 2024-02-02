@@ -71,10 +71,10 @@ Another way to think about this algorithm is that employees are trading prioriti
 
 ```mermaid
 graph LR
-    e1-->j2;
-    j2-->e2;
-    e2-->j1;
-    j1-->e1;
+    ide1((e<sub>1</sub>))-->idj2((j2));
+    idj2((j2))-->ide2((e2));
+    ide2((e2))-->idj1((j1));
+    idj1((j1))-->ide1((e1));
 ```
 
 
