@@ -70,7 +70,7 @@ Another way to think about this algorithm is that employees are trading prioriti
 `e1`'s top choice is `j2`, and `e2`'s top choice is `j1`. However, `j1`'s "preference" is `e1`, and `j2`'s "preference" is `e2` (in this context, maybe employee 1 is the most qualified candidate for job 1. With students and schools in the school matching context, we might say that student 1 has the highest priority for school 1). In this example, since `e1, e2, j1, j2` forms a cycle, the TTC algorithm would place employee 1 in job 2 `(e1, j2)` and employee 2 in job 1 `(e2, j1)`. We can see how in this example, even though `e1` and `e2` had higher priorities for `j1` and `j2`, respectively, by "trading their priorities," both employees were able to be placed in a job that they preferred more.
 
 ```mermaid
-graph TD
+graph LR
     e1-->j2;
     j2-->e2;
     e2-->j1;
