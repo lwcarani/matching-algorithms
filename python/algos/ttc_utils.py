@@ -4,6 +4,7 @@ from typing import List, Set
 # custom imports
 from graph import Graph, Node
 
+
 def find_cycle(G: Graph) -> List[str] | None:
     if G.number_of_nodes_in_graph == 0:
         return None
@@ -22,12 +23,7 @@ def find_cycle(G: Graph) -> List[str] | None:
 
 
 def update_graph(
-    G, 
-    matches, 
-    employee_preferences, 
-    job_preferences,
-    employee_queue,
-    job_queue
+    G, matches, employee_preferences, job_preferences, employee_queue, job_queue
 ):
     employees = set(employee_preferences.keys())
     jobs = set(job_preferences.keys())
@@ -68,12 +64,12 @@ def update_graph(
                     next_employee_preference: str = job_preferences[j][employee_index]
                 # if we've gone through the job's entire list, this job will be unfilled,
                 # delete it from the graph
-                else: 
+                else:
                     G.delete_node(j)
                     break
                 # if this job's next highest preference has not yet been assigned, add a directed edge
                 if next_employee_preference not in matches:
                     G.add_edge(j, next_employee_preference)
                     break
-            
+
     return G, matches, employee_queue, job_queue

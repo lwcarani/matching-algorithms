@@ -1,12 +1,10 @@
 from collections import defaultdict
 from typing import Dict, Set, Tuple, List
 
-def employee_without_match(
-    matches: Dict[str, str],
-    employees: Set[str]
-) -> str:
+
+def employee_without_match(matches: Dict[str, str], employees: Set[str]) -> str:
     """
-    Helper function to determine if employee is unmatched. 
+    Helper function to determine if employee is unmatched.
     Returns the first employee encountered that is not
     yet matched. employees can be matched with a job, or
     themselves. If matched to themselves, this means that the
@@ -18,16 +16,16 @@ def employee_without_match(
         if employee not in matches:
             return employee
 
+
 def da(
-    employee_preferences: Dict[str, List[str]],
-    job_preferences: Dict[str, List[str]]
+    employee_preferences: Dict[str, List[str]], job_preferences: Dict[str, List[str]]
 ) -> Tuple[Dict[str, str], Dict[str, str]]:
     """
     Implementation of the deferred acceptance (DA) algorithm (also
     (also as Gale-Shapley algorithm), first published in 1962.
     Iterates through all employees and their preference lists,
     and tentatively assigns them to the most preferred job on
-    their list, only re-assigning them if the job they are 
+    their list, only re-assigning them if the job they are
     tentatively assigned to is "proposed to" by an employee
     that the job desires more. When this happens, the initial
     employee is bumped (because the job prefers its new offer),
@@ -66,7 +64,9 @@ def da(
             matches[employee] = employee
             continue
 
-        prev_employee: str | None = matches.get(job, None)  # check if someone was already assigned to this job
+        prev_employee: str | None = matches.get(
+            job, None
+        )  # check if someone was already assigned to this job
 
         # if prev_employee is None, then no one has been assigned this job yet,
         # so go ahead and assign to current employee. No swap needs to be made.
@@ -76,12 +76,13 @@ def da(
 
         # otherwise, if prev_employee is not None, then someone is already assigned to that job,
         # check and see who has priority. If the current employee has a higher priority
-        # than the previous employee assigned to this job, make the new job.
+        # than the previous employee assigned to this job, make the new job assignment.
         # This is the primary tiebreaker.
         elif (
             employee in job_preferences[job]
             and prev_employee in job_preferences[job]
-            and job_preferences[job].index(employee) < job_preferences[job].index(prev_employee)
+            and job_preferences[job].index(employee)
+            < job_preferences[job].index(prev_employee)
         ):
             matches[employee] = job
             matches[job] = employee

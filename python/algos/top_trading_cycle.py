@@ -8,8 +8,7 @@ from algos.ttc_utils import find_cycle, update_graph
 
 
 def ttc(
-    employee_preferences: Dict[str, List[str]],
-    job_preferences: Dict[str, List[str]]
+    employee_preferences: Dict[str, List[str]], job_preferences: Dict[str, List[str]]
 ) -> Tuple[Dict[str, str], Dict[str, str]]:
     matches: Dict[str, str] = {}
     employees = set(employee_preferences.keys())
@@ -24,7 +23,7 @@ def ttc(
     # i.e., if job_index is 2, then we are considering the 3rd job on the given
     job_queue: Dict = defaultdict(int)
     employee_queue: Dict = defaultdict(int)
-    
+
     # add edges to build out graph
     for e in employees:
         job_index = job_queue[e]  # new entries start at 0 for defaultdict
@@ -49,12 +48,7 @@ def ttc(
 
         # update the graph with new edges after cycle was found and matches were made
         G, matches, employee_queue, job_queue = update_graph(
-            G, 
-            matches, 
-            employee_preferences, 
-            job_preferences, 
-            employee_queue, 
-            job_queue
+            G, matches, employee_preferences, job_preferences, employee_queue, job_queue
         )
 
     return matches, {employee: matches[employee] for employee in employees}
