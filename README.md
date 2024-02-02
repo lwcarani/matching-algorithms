@@ -77,27 +77,6 @@ graph LR
     idj1((j1))-->ide1((e1));
 ```
 
-```mermaid
-graph LR
-    e1-->j2;
-    j2-->e2;
-    e2-->j1;
-    j1-->e1;
-```
-
-```mermaid
-flowchart LR
-    e1-->j2;
-    j2-->e2;
-    e2-->j1;
-    j1-->e1;
-```
-
-
-![image](https://github.com/lwcarani/matching-algorithms/assets/83194857/15bf2a3b-c493-4be8-b0e3-24df571b18bc)
-
-(image created using https://madebyevan.com/fsm/)
-
 # Acknowledgements
 My love of mechanism design, matching theory, and these two algorithms was born when I was an undergraduate student, and I read a paper by Alvin Roth about the design of school choice systems in New York City and Boston. I found it beautiful that by simply redesigning the procedure by which students are matched with schools, you can solve market issues of thickness, congestion, and safety; and drastically improve the quality of assignments for students. 
 
@@ -119,7 +98,5 @@ Game-Theoretic Issues](https://web.stanford.edu/~niederle/School%20Matching%20Sy
 - [Matching Mechanisms for Refugee Resettlment](https://humcap.uchicago.edu/RePEc/hka/wpaper/Delacretaz_Kominers_Teytelboym_2019_matching-mechanisms-refugee-resettlement.pdf) - David Delacrétaz, Scott Duke Kominers, and Alexander Teytelboym
 - [On approximately fair allocations of indivisible goods](https://dl.acm.org/doi/abs/10.1145/988772.988792) - R.J. Lipton, E. Markakis, E. Mossel, and A. Saberi
 ---
-
-Finally, if you haven't used the [Finite State Machine Designer](https://madebyevan.com/fsm/) tool made by [Evan Wallace](https://madebyevan.com/), I highly recommend you check it out. I've been using it since graduate school - the simple and easy-to-use design has saved me countless hours!
 
 Feedback and pull requests are welcome!
