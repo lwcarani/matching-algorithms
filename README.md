@@ -12,7 +12,7 @@ Let's suppose we are trying to match employees to available jobs, where employee
 3. Each rejected employee removes that job from their list, and makes a new offer to the next highest job on their list.
 4. Go back to step 1 and repeat until there are no more offers or rejections (i.e., either all employees are matched OR we have exhausted all preference lists for all employees), at which point make permanent all tentative matches. 
 
-Note that the algorithm is "employee-optimal" (each employee gets their best outcome in any stable matching) and "job-pessimal" (each job gets their worst outcome in any stable matching) ([source](https://web.stanford.edu/~jdlevin/Econ%20136/Lecture%202%20Introduction%20to%20Matching.pptx#:~:text=The%20man%2Dproposing%20DA%20algorithm,proposing%20DA%20with%20everything%20flipped.)). This holds for whichever side is proposing. If jobs were "proposing" to employees, then the final matching would be "job-optimal" and "employee-pessimal."
+Note that the algorithm is "employee-optimal" (each employee gets their best outcome in any stable matching) and "job-pessimal" (each job gets their worst outcome in any stable matching) ([source](https://web.stanford.edu/~jdlevin/Econ%20136/Lecture%202%20Introduction%20to%20Matching.pptx#:~:text=The%20man%2Dproposing%20DA%20algorithm,proposing%20DA%20with%20everything%20flipped.)). This holds for whichever side is proposing. If jobs were "proposing" to employees, then the final matching would be "job-optimal" and "employee-pessimal." It is also important to note that the employee-optimal stable matching $\mathcal{M}$ is *weakly* Pareto optimal for the employees in the set of all matchings. That is, there can be no matching (even an unstable matching) that all employees strictly prefer to the employee-optimal matching ([source](https://web.stanford.edu/~alroth/papers/GaleandShapley.revised.IJGT.pdf)).
 
 ## Gale-Shapley Algorithm Example
 
@@ -38,6 +38,18 @@ Because of the way the algorithm is designed, we are guaranteed a stable matchin
 Let's suppose our final matching was actually $\mathcal{M'}=$ `(e1, j2), (e2, j1)`. Although in this proposed matching `e1` is getting their top choice of `j2`, we see by looking at the initial preference lists that `e2` prefers `j2` to their current assignment `j1`, AND `j2` also prefers `e2` to their current assignment `e1`. Therefore, in $\mathcal{M'}$ we have a blocking pair `(e2, j2)`. 
 
 Obviously this blocking pair was not present in our final matching $\mathcal{M}$, but how are we guaranteed that the Gale-Shapley algorithm will never terminate with a blocking pair as part of the final matching? The intuition is that if `e2` prefers `j2` to their current assignment of `j1`, then at some point during algorithm execution, `e2` would have proposed to `j2`. And since `j2` also prefers `e2` to their current assignment `j1`, they would have accepted this proposal, and been matched with `e2`! And this is what we saw happen when we stepped through the example above.
+
+### Discussion of Pareto Optimality
+Earlier, we stated that the employee-optimal stable matching $\mathcal{M}$ is *weakly* Pareto optimal for the employees in the set of all matchings. Let's demonstrate with an example. Suppose we have the following employees and jobs with the corresponding preferences:
+
+`e1: [j2, j1, j3]`<br>
+`e2: [j1, j2, j3]`<br>
+`e3: [j1, j2, j3]`<br>
+`j1: [e1, e2, e3]`<br>
+`j2: [e3, e1, e2]`<br>
+`j3: [e1, e2, e3]`
+
+Then at $\mathcal{M}=$ `(e1, j1), (e2, j3), (e3, j2)` `e1` and `e3` receive their second choice (while `e2` receives their last choice). But at the (unstable) matching $\mathcal{M'}=$ `(e1, j2), (e2, j3), (e3, j1)` `e1` and `e3` now each receive their first choice so they are strictly better off than the employee-optimal stable matching $\mathcal{M}$ and `e2` is not worse off. Note that $\mathcal{M'}$ is unstable because `(e2, j1)` forms a blocking pair.
 
 ### How to Generate Preference Lists?
 In this toy example, we were given preference lists of employees over jobs, as well as preference lists of jobs over all employees. This notion of preference can be established in several ways. Employees could provide a strict ranking of preferences for all jobs, and jobs could provide a strict ranking of preferences for all employees. The former is typically quite feasible, and also necessary (it is easy to imagine having employees submit a rank-ordered list of all jobs that they prefer). The latter is much more difficult to achieve - how do we have jobs (or more likely, the supervisors for those jobs) generate a rank-ordered list of all possible employees in the candidate pool?
